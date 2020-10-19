@@ -1,15 +1,17 @@
 int rectX = 160;
 int rectY = 90;
 int width = 180;
-int circleX = 240;
-int circleY = 185;
-int radius = 80;
+int r = 255;
+int g = 0;
+int b = 0;
+int radius = 10;
 
 
 
 
 void setup() {
 	size(500, 500);
+  background(0);
 }
 
 void draw() {
@@ -26,16 +28,21 @@ void draw() {
 
 // Step 4: Make it so when the program runs the ball slides off the screen exiting at the point (500, 500)
 
-  background(0);
+  // background(0);
   stroke(0);
-  fill(255,int(random(1,200)),100);
+  fill(r,g,b);
   rect(rectX,rectY,rectX,width);
   stroke(0);
   fill(int(random(1,200)),int(random(1,20)),int(random(20,250)));
-  ellipse(circleX,circleY,radius,radius);
-  circleX = circleX+2;
-  circleY --; 
-  radius = radius-0.5;
-  
-
+  ellipse(mouseX+random(20)+random(-20),mouseY+random(20)+random(-20),radius,radius);
+ 
+}
+void mousePressed(){
+  background(255);
+  r = random(0,255);
+  g = random(0,200);
+  b = random(100,200);
+  rectX = random(0,500); 
+  rectY = random(0,500);
+  width = random(0,500);
 }
